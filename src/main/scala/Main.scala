@@ -19,18 +19,19 @@ object Main extends App {
   println(s"\n### Loading edge list: ${path}\n")
   Source.fromFile(path).getLines().foreach(println)
 
-  val g = GraphLoader.edgeListFile(
+  val g: Graph[Int, Int] = GraphLoader.edgeListFile(
     sc,
     path,
     edgeStorageLevel = StorageLevel.MEMORY_AND_DISK,
     vertexStorageLevel = StorageLevel.MEMORY_AND_DISK
   )
 
+  // Calculate centralities.
   println("\n### Degree centrality\n")
   g.degrees.sortByKey().collect().foreach { case (n, v) => println(s"Node: ${n} -> Degree: ${v}") }
 
   println("\n### Betweenness centrality\n")
-  val h = Betweenness.run(g)
+  val h: Graph[Double, Int] = Betweenness.run(g)
   h.vertices.sortByKey().collect().foreach { case (n, v) => println(s"Node: ${n} -> Betweenness: ${v}") }
 
   // Stop Spark.
