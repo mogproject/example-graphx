@@ -23,7 +23,11 @@ sbt run
 |Algorithm: Betweenness centrality|[src/main/scala/Betweenness.scala](https://github.com/mogproject/example-graphx/blob/master/src/main/scala/Betweenness.scala)|
 |Main logic|[src/main/scala/Main.scala](https://github.com/mogproject/example-graphx/blob/master/src/main/scala/Main.scala)|
 
-### Output
+#### Network view: edge_list_1.txt
+
+![edge_list_1](img/example_1.png "edge_list_1.txt")
+
+### Expected output
 
 ```
 ### Loading edge list: src/main/resources/edge_list_1.txt
